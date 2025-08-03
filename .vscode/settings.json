@@ -1,0 +1,5 @@
+{
+    "maui.configuration.javaSdkPreferredPath": "D:\\dev\\source\\edu-cs\\cs-edu-repo-24-maui-xamarin1\\run\\Java\\Sdk",
+    "maui.configuration.androidSdkPreferredPath": "D:\\dev\\source\\edu-cs\\cs-edu-repo-24-maui-xamarin1\\run\\Android\\Sdk",
+    "dotnet.defaultSolution": "FirstMauiApp\\FirstMauiApp.sln"
+}

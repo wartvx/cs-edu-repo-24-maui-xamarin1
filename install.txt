@@ -1,0 +1,202 @@
+
+
+https://learn.microsoft.com/en-us/dotnet/maui/get-started/installation?view=net-maui-9.0&tabs=visual-studio-code
+
+https://learn.microsoft.com/en-us/dotnet/maui/get-started/first-app?view=net-maui-9.0&viewFallbackFrom=net-maui-8.0&pivots=devices-android&tabs=visual-studio-code#target-android
+
+
+
+
+
+Microsoft OpenJDK, the Android SDK, and an Android emulator installation
+
+
+
+
+https://learn.microsoft.com/en-us/java/openjdk/download
+
+https://learn.microsoft.com/en-us/java/openjdk/install
+
+For Windows, Linux, and macOS, we produce ZIP (Windows) and TAR.GZ (Linux/macOS) packages.
+ To install, extract one of these packages in a folder of your choice,
+ then set the JAVA_HOME environment variable to that folder
+
+
+from JAVA_HOME, ANDROID_HOME
+
+from Visual Studio
+C:\Program Files (x86)\Android
+C:\Program Files (x86)\Android\openjdk\jdk-17.0.14
+C:\Program Files (x86)\Android\android-sdk
+
+from Android Studio
+%LocalAppData%\Android\Sdk
+
+
+
+
+dotnet new maui -n "MyMauiApp"
+
+cd MyMauiApp
+dotnet build -t:InstallAndroidDependencies -f:net9.0-android -p:AndroidSdkDirectory="/path/to/sdk" -p:AcceptAndroidSDKLicenses=True -p:JavaSdkDirectory="/path/to/sdk"
+
+
+-p:AndroidSdkDirectory="/path/to/sdk" installs or updates Android dependencies
+ to the specified absolute path. Suggested paths are %LOCALAPPDATA%/Android/Sdk on Windows
+
+!!!
+Try to avoid using paths that contain spaces or non-ASCII characters
+
+(optional) -p:JavaSdkDirectory="/path/to/sdk" installs the Java SDK
+ to the specified absolute path
+
+
+run and debug for windows crashes with 0xc0000374 error if the project has casual path
+ (required ultimative short path)
+ avoid it partially
+
+
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\cs-edu-repo-24-maui-xamarin1 #git
+>
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\#git
+
+
+cd "D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\#git"
+
+dotnet new sln -o "FirstMauiApp"
+cd "FirstMauiApp"
+
+dotnet new maui -o "FirstMauiApp"
+dotnet sln add "FirstMauiApp"
+
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\#git\FirstMauiApp\FirstMauiApp\Platforms\Windows\app.manifest
+<windowsSettings>
+<longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
+
+
+
+
+HKEY_CURRENT_USER\Environment
+
+JAVA_HOME
+REG_EXPAND_SZ
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\run\Java\Sdk
+
+ANDROID_HOME
+REG_EXPAND_SZ
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\run\Android\Sdk
+
+
+
+
+set the Java SDK, Android SDK paths at the user/workspace level
+ (user - defauilt) %AppData%\Code\User\settings.json
+
+.NET MAUI: Configure Android
+Select Java SDK location
+Select Android SDK location
+
+    "maui.configuration.javaSdkPreferredPath": "D:\\dev\\source\\edu-cs\\cs-edu-repo-24-maui-xamarin1\\run\\Java\\Sdk",
+    "maui.configuration.androidSdkPreferredPath": "D:\\dev\\source\\edu-cs\\cs-edu-repo-24-maui-xamarin1\\run\\Android\\Sdk",
+
+.NET MAUI: Configure Android
+Refresh Android environment
+
+
+\Android\Sdk\platform-tools\adb.exe
+потребует разрешения firewall
+
+
+
+
+cd "D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\#git"
+cd "FirstMauiApp"
+cd "FirstMauiApp"
+dotnet build -t:InstallAndroidDependencies -f:net9.0-android -p:AndroidSdkDirectory="../../../run/Android/Sdk" -p:AcceptAndroidSDKLicenses=True -p:JavaSdkDirectory="../../../run/Java/Sdk"
+
+
+If Android licenses haven't been accepted, in an elevated terminal
+ navigate to your Android SDK's cmdline-tools/{version}/bin folder
+ and run sdkmanager --licenses and then follow the CLI prompts
+required JAVA_HOME, ANDROID_HOME
+
+cd
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\run\Android\Sdk\cmdline-tools\12.0\bin
+sdkmanager --licenses
+
+
+
+
+Download and install an Android emulator
+
+cd
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\run\Android\Sdk\cmdline-tools\12.0\bin
+
+sdkmanager --install emulator
+sdkmanager --install "system-images;android-35;google_apis;x86_64"
+
+
+sdkmanager --list
+
+Installed packages
+Available Packages
+Available Updates
+
+
+sdkmanager --update
+
+
+https://developer.android.com/tools/sdkmanager?hl=ru
+
+
+cd
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\run\Android\Sdk\cmdline-tools\12.0\bin
+
+echo no | avdmanager create avd --force --name FirstAndroidVirtualDevice-API35 --package "system-images;android-35;google_apis;x86_64"
+
+avdmanager create avd --help
+
+avdmanager list avd --compact
+
+avdmanager delete avd --name FirstAndroidVirtualDevice-API35
+
+C:\Users\user\.android\avd
+
+
+https://developer.android.com/tools/avdmanager?hl=ru
+
+
+cd 
+D:\dev\source\edu-cs\cs-edu-repo-24-maui-xamarin1\run\Android\Sdk\emulator
+
+%userprofile%\.android\avd\FirstAndroidVirtualDevice-API35.avd\config.ini
+hw.keyboard = no > hw.keyboard = yes
+
+emulator -avd FirstAndroidVirtualDevice-API35
+
+320x640
+
+emulator -list-avds
+
+emulator -help
+
+
+https://developer.android.com/studio/run/emulator-commandline?hl=ru
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
