@@ -18,21 +18,21 @@ public partial class RegisterPage : ContentPage
 
 		/*
 		if (count == 1)
-			RegisterBtn.Text = $"Clicked {count} time";
+			registerBtn.Text = $"Clicked {count} time";
 		else
-			RegisterBtn.Text = $"Clicked {count} times";
+			registerBtn.Text = $"Clicked {count} times";
 		*/
 
 		/*
-		RegisterBtn.Text = "Выполняется регистрация...";
+		registerBtn.Text = "Выполняется регистрация...";
 		*/
 
 		// динамическая загрузка интерфейса из XML-кода
 		// при использовании такого подхода производительность будет снижаться,
 		//  поэтому делать это стоит лишь при необходимости
 		string xaml = "<Button Text=\"⌛ Выполняется регистрация..\"  />";
-		RegisterBtn.LoadFromXaml(xaml);
+		registerBtn.LoadFromXaml(xaml);
 
-		SemanticScreenReader.Announce(RegisterBtn.Text);
+		SemanticScreenReader.Announce(registerBtn.Text);
 	}
 }

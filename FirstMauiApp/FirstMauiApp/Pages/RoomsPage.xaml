@@ -15,18 +15,20 @@
             HorizontalOptions="Center" />
 
 <!--
-<ListView.ItemsSource>
-   <x:Array Type="{x:Type x:String}">
-       <x:String>Кухня</x:String>
-       <x:String>Ванная</x:String>
-       <x:String>Гостиная</x:String>
-       <x:String>Детская</x:String>
-       <x:String>Прихожая</x:String>
-   </x:Array>
-</ListView.ItemsSource>
-</ListView>
 -->
+        <ListView BackgroundColor="Azure" >
+            <ListView.ItemsSource>
+              <x:Array Type="{x:Type x:String}">
+                  <x:String>Кухня</x:String>
+                  <x:String>Ванная</x:String>
+                  <x:String>Гостиная</x:String>
+                  <x:String>Детская</x:String>
+                  <x:String>Прихожая</x:String>
+              </x:Array>
+            </ListView.ItemsSource>
+        </ListView>
 
+<!--
         <CollectionView>
             <CollectionView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
@@ -41,9 +43,10 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+-->
 
         <Button
-            x:Name="AddBtn"
+            x:Name="addBtn"
             Text="{x:Static pages:RoomsPage.BUTTON_TEXT}"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="OnAddClicked"

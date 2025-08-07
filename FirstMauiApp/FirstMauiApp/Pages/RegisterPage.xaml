@@ -15,7 +15,7 @@
             HorizontalTextAlignment="Center"/>
 
         <Button
-            x:Name="RegisterBtn"
+            x:Name="registerBtn"
             Text="{x:Static pages:RegisterPage.BUTTON_TEXT}"
             SemanticProperties.Hint="Counts the number of times you click"
             Clicked="OnRegisterClicked"
